@@ -1,0 +1,63 @@
+body {
+	width: 100%;
+}
+header {
+	text-align: center;
+	font-size: 36px;
+}
+button {
+	cursor: pointer;
+	display: block;
+	margin-top: 10px; 
+}
+#characters {
+	height: 100px;
+	width: 640px;
+	background-color: blue;
+	clear: both;
+	margin-bottom: 10px;
+}
+#f1, #f2, #f3, #f4 {
+	width: 150px;
+	height: 100px;
+	background-color: teal;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;
+}
+#f1:hover, #f2:hover, #f3:hover, #f4:hover {
+	cursor: pointer;
+}
+#char {
+	clear: both;
+}
+#enemyAvail {
+	height: 100px;
+	width: 480px;
+	background-color: black;
+	clear: both;
+	margin-bottom: 10px;
+}
+#enemyCh {
+	height: 100px;
+	width: 500px;
+	background-color: yellow;
+	clear: both;
+}
+#myAtt {
+	margin-top: 10px;
+}
+#oppAtt {
+	margin-top: 10px;
+}
+.nowEnemy {
+	/*background-color: red !important;*/
+}
+.fighter {
+	/*width: 150px;
+	height: 100px;
+	background-color: teal;
+	float: left;
+	margin-right: 10px;
+	margin-bottom: 10px;*/
+}
