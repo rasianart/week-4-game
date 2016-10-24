@@ -38,21 +38,22 @@ $('#attack').on('click', function() {
 		$('.fighter').html("Health: " + chosenF.health.toString() + " " + "Attack: " + chosenF.attack.toString());
 		$('#myAtt').html("You attacked B for " + chosenF.attack + " damage.");
 		$('.chosenEnemy').html("Health: " + chosenE.health.toString() + " " + "Attack: " + chosenE.attack.toString());
-		$('#oppAtt').html("B attacked you for " + chosenE.attack + " damage.");
+		$('#oppAtt').html("B attacked you for " + chosenE.attack + " damage.");	
 		if (chosenF.health < 1) {
 			alert("Game Over");
 			$('#myAtt, #oppAtt').empty();
+			location.reload();
 		} else if (chosenE.health < 1 && $('.possEnemy').length == 1) {
-			alert("You beat them all!");
 			chosenF.health = chosenF.initHealth;
 			$('.fighter').html("Health: " + chosenF.health.toString() + " " + "Attack: " + chosenF.attack.toString());
 			$('.chosenEnemy').remove();
+			alert("You beat them all!");
 			$('#myAtt, #oppAtt').empty();
 		} else if (chosenE.health < 1) {
-			alert("You won! Choose next opponent");
 			chosenF.health = chosenF.initHealth;
 			$('.fighter').html("Health: " + chosenF.health.toString() + " " + "Attack: " + chosenF.attack.toString());
 			$('.chosenEnemy').remove();
+			alert("You won! Choose next opponent");
 			$('#myAtt, #oppAtt').empty();
 		}
 	} else {
@@ -62,7 +63,7 @@ $('#attack').on('click', function() {
 var compute = function() {
 	chosenF.health = chosenF.health - chosenE.attack;
 	chosenE.health = chosenE.health - chosenF.attack;
-	chosenF.attack = Math.floor(chosenF.attack * 1.3);
+	chosenF.attack = Math.floor(chosenF.attack * 1.1);
 };
 
 $('#f1').one('click', function() {
