@@ -46,9 +46,11 @@ button {
 }
 #myAtt {
 	margin-top: 10px;
+	height: 20px;
 }
 #oppAtt {
 	margin-top: 10px;
+	height: 20px;
 }
 .nowEnemy {
 	/*background-color: red !important;*/
