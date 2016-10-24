@@ -2,22 +2,26 @@
 var f1 = {
 	health: 120,
 	attack: 24,
-	initHealth: 120
+	initHealth: 120,
+	initattack: 24
 }
 var f2 = {
 	health: 150,
 	attack: 20,
 	initHealth: 150,
+	initattack: 20
 }
 var f3 = {
 	health: 100,
 	attack: 30,
-	initHealth: 100
+	initHealth: 100,
+	initattack: 30,
 }
 var f4 = {
 	health: 180,
 	attack: 10,
-	initHealth: 180
+	initHealth: 180,
+	initattack: 10
 }
 
 $('#f1').html("Health: " + f1.health.toString() + " " + "Attack: " + f1.attack.toString());
@@ -37,11 +41,13 @@ $('#attack').on('click', function() {
 		$('#oppAtt').html("B attacked you for " + chosenE.attack + " damage.");
 		if (chosenF.health < 1) {
 			alert("Game Over");
+			$('#myAtt, #oppAtt').empty();
 		} else if (chosenE.health < 1 && $('.possEnemy').length == 1) {
 			alert("You beat them all!");
 			chosenF.health = chosenF.initHealth;
 			$('.fighter').html("Health: " + chosenF.health.toString() + " " + "Attack: " + chosenF.attack.toString());
 			$('.chosenEnemy').remove();
+			$('#myAtt, #oppAtt').empty();
 		} else if (chosenE.health < 1) {
 			alert("You won! Choose next opponent");
 			chosenF.health = chosenF.initHealth;
@@ -53,16 +59,11 @@ $('#attack').on('click', function() {
 		return;
 	}
 });
-
-
-
 var compute = function() {
 	chosenF.health = chosenF.health - chosenE.attack;
 	chosenE.health = chosenE.health - chosenF.attack;
 	chosenF.attack = Math.floor(chosenF.attack * 1.3);
 };
-
-// console.log($('#f1').hasClass('all'));
 
 $('#f1').one('click', function() {
 	if ($('#f1').hasClass('possEnemy')) {
@@ -71,13 +72,12 @@ $('#f1').one('click', function() {
 		$(this).removeClass('all').addClass('fighter');
 		$('.all').removeClass('all').addClass('nowEnemy possEnemy');
 		$('.nowEnemy').appendTo('#enemyAvail');
-		// console.log(chosenF);
 		chosenF = f1;
-		// console.log(chosenF);
 		initE();
 		return;
 	}
 });
+
 $('#f2').one('click', function() {
 	if ($('#f2').hasClass('possEnemy')) {
 		return;
@@ -90,6 +90,7 @@ $('#f2').one('click', function() {
 		return;
 	}
 });
+
 $('#f3').one('click', function() {
 	if ($('#f3').hasClass('possEnemy')) {
 		return;
@@ -102,6 +103,7 @@ $('#f3').one('click', function() {
 		return;
 	}
 });
+
 $('#f4').one('click', function() {
 	if ($('#f4').hasClass('possEnemy')) {
 		return;
@@ -114,6 +116,32 @@ $('#f4').one('click', function() {
 		return;
 	}
 });
+
+// cheap reset
+$('#reset').on('click', function() {
+	location.reload();
+});
+
+// $('#reset').on('click', function() {
+// 	$('#f1, #f2, #f3, #f4').removeClass();
+// 	$('#myAtt, #oppAtt').empty();
+// 	$('#f1, #f2, #f3, #f4').appendTo('#characters');
+// 	var chosenE;
+// 	var chosenF;
+// 	f1.attack = f1.initattack;
+// 	f1.health = f1.initHealth;
+// 	f2.attack = f2.initattack;
+// 	f2.health = f2.initHealth;
+// 	f3.attack = f3.initattack;
+// 	f3.health = f3.initHealth;
+// 	f4.attack = f4.initattack;
+// 	f4.health = f4.initHealth;
+// 	$('#f1').html("Health: " + f1.health.toString() + " " + "Attack: " + f1.attack.toString());
+// 	$('#f2').html("Health: " + f2.health.toString() + " " + "Attack: " + f2.attack.toString());
+// 	$('#f3').html("Health: " + f3.health.toString() + " " + "Attack: " + f3.attack.toString());
+// 	$('#f4').html("Health: " + f4.health.toString() + " " + "Attack: " + f4.attack.toString());
+// 	// console.log(chosenE, chosenF);
+// });
 
 function initE() {
 	$('.nowEnemy').on('click', function() {
@@ -133,7 +161,6 @@ function initE() {
 			} else if (eID == 'f4') {
 				chosenE = f4;
 			}
-			// console.log(!$('.enemyCh').is(':parent'));
 			console.log($('.possEnemy').length);
 			return;
 		}
