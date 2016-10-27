@@ -19,10 +19,11 @@ var f3 = {
 }
 var f4 = {
 	health: 180,
-	attack: 10,
+	attack: 14,
 	initHealth: 180,
-	initattack: 10
+	initattack: 14
 }
+
 
 $('#f1').html("Health: " + f1.health.toString() + " " + "Attack: " + f1.attack.toString());
 $('#f2').html("Health: " + f2.health.toString() + " " + "Attack: " + f2.attack.toString());
@@ -37,6 +38,12 @@ $('#attack').on('click', function() {
 		compute();
 		$('.fighter').html("Health: " + chosenF.health.toString() + " " + "Attack: " + chosenF.attack.toString());
 		$('#myAtt').html("You attacked B for " + chosenF.attack + " damage.");
+		$('.fighter').width(chosenF.health / chosenF.initHealth * 100 + '%');
+		// health.value = chosenF.health;
+		// console.log($('fighterProg').value);
+
+
+
 		$('.chosenEnemy').html("Health: " + chosenE.health.toString() + " " + "Attack: " + chosenE.attack.toString());
 		$('#oppAtt').html("B attacked you for " + chosenE.attack + " damage.");	
 		if (chosenF.health < 1) {
