@@ -1,3 +1,7 @@
+html, body {
+  overflow-y:hidden;
+  height:100%;
+}
 .attack {
 	margin-right: 12%;
 	text-align: center;
@@ -19,6 +23,9 @@ body {
 	color: white;
 	overflow: hidden;
 	position: relative;
+}
+#but:hover {
+	cursor: pointer;
 }
 button {
 	cursor: pointer;
@@ -46,6 +53,7 @@ button {
 	color: white;
 	/*font-weight: bold;*/
 	font-family: 'Bungee Hairline', cursive;
+	font-size: 14px;
 }
 #f1:hover, #f2:hover, #f3:hover, #f4:hover {
 	cursor: pointer;
@@ -54,6 +62,22 @@ button {
 }
 #flyW {
 	color: white;
+}
+#init {
+	padding-top: 300px;
+	margin-top: 0px;
+	font-size: 24px;
+	color: white;
+	text-align: center;
+	position: absolute;
+	height: 776px;
+	width: 100%;
+	z-index: 8;
+	font-family: 'Rasa', serif;
+	background-color: black;
+}
+#initcontain {
+	position: relative;
 }
 #letScroll {
 	color: white;
@@ -95,17 +119,18 @@ accidentally becoming selected/inverted when the user interacts with the scrolle
 	bottom: 0;
 	margin-bottom: 270px;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-	font-family: Arial;
+	font-family: 'Share Tech Mono', monospace;
+	margin-left: 10px;
 }
 #oppAtt {
-	margin-bottom: 475px;
+	margin-bottom: 465px;
 	color: white;
-	margin-left: 85%;
+	margin-left: 83%;
 	float: right;
 	position: fixed;
 	bottom: 0;
 	text-shadow: -1px 0 black, 0 1px black, 1px 0 black, 0 -1px black;
-	font-family: 'Trirong', serif;
+	font-family: 'Share Tech Mono', monospace;
 }
 .progress {
 	background-color: #cccccc;
@@ -121,18 +146,20 @@ accidentally becoming selected/inverted when the user interacts with the scrolle
 }
 #reset {
 	background-color: transparent;
-	color: black;
+	color: white;
 	position: fixed;
-	bottom: 0;
+	/*bottom: 0;
 	left: 0;
-	right: 0;
-	z-index: 2;
-	width: 60px;
-	margin-left: 74%;
-	margin-bottom: 395px;
+	right: 0;*/
+	z-index:-1;
+	width: 100%;
+	/*margin-left: 47%;*/
+	/*margin-left: 74%;*/
+	/*margin-bottom: 395px;*/
 	opacity: 0;
 	font-family: Arial;
 	font-weight: bold;
+	font-size: 500px;
 }
 /*#reset:hover {
 	cursor: pointer;
@@ -157,16 +184,19 @@ accidentally becoming selected/inverted when the user interacts with the scrolle
 #sym5 {
 	position: fixed;
 	bottom: 0; 
-	left: 0;
+	/*left: 0;*/
 	right: 0;
 	z-index: 3;
 	opacity: 1;
-	margin-left: 73%;
-	margin-bottom: 365px;
+	/*margin-left: 73%;*/
+	/*margin-bottom: 365px;*/
 }
 #sym5:hover {
-	opacity: 0;
-	cursor: pointer;	
+	opacity: 1;
+	cursor: pointer;
+	-webkit-filter: invert(100%);
+	filter: invert(100%); /*sepia, hue-rotate, invert....*/
+	z-index: 10;	
 }
 video { 
     position: fixed;
@@ -181,7 +211,20 @@ video {
   	background-size: cover;
   	transition: 1s opacity;
 }
-
+#youWon {
+	padding-top: 200px;
+	margin-top: 0px;
+	font-size: 24px;
+	color: white;
+	text-align: center;
+	position: absolute;
+	height: 435px;
+	width: 100%;
+	z-index: -1;
+	font-family: 'Rasa', serif;
+	background-color: black;
+	opacity: 0;
+}
 
 
 
