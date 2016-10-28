@@ -1,27 +1,27 @@
 // players(objects)
 var f1 = {
     health: 120,
-    attack: 8,
+    attack: 25,
     initHealth: 120,
-    counter: 8
+    counter: 1.3
 };
 var f2 = {
     health: 150,
-    attack: 6,
+    attack: 15,
     initHealth: 150,
-    counter: 6
+    counter: 1.4
 };
 var f3 = {
-    health: 100,
-    attack: 10,
-    initHealth: 100,
-    counter: 10,
+    health: 140,
+    attack: 40,
+    initHealth: 140,
+    counter: 1.2
 };
 var f4 = {
     health: 180,
-    attack: 5,
+    attack: 50,
     initHealth: 180,
-    counter: 5
+    counter: 1.1
 };
 
 // variables dedicated to the current chosen fighter and enemy
@@ -170,9 +170,10 @@ $('.attack').on('click', function() {
 
 // computes health and attack 
 var compute = function() {
+    chosenF.attack = Math.floor(chosenF.attack * chosenF.counter);
     chosenF.health = chosenF.health - chosenE.attack;
     chosenE.health = chosenE.health - chosenF.attack;
-    chosenF.attack = chosenF.attack + chosenF.counter;
+    
     // chosenF.attack = Math.floor(chosenF.attack * 1.1);
 };
 
